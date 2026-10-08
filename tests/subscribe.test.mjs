@@ -23,4 +23,12 @@ assert.equal(rows.length, 0, 'isca preenchida não grava');
 assert.equal((await post(JSON.stringify({ email: '  Ana@Exemplo.COM ', newsletter: true }))).status, 200);
 assert.deepEqual(rows[0].slice(0, 2), ['ana@exemplo.com', 1]);
 
+// Limite estourado e corpo grande demais não chegam ao banco.
+const blocked = { ...env, LIMITER: { limit: async () => ({ success: false }) } };
+const request = () => new Request('https://x/api/subscribe', { method: 'POST', body: JSON.stringify({ email: 'b@b.co' }) });
+assert.equal((await worker.fetch(request(), blocked)).status, 429);
+const big = new Request('https://x/api/subscribe', { method: 'POST', headers: { 'content-length': '5000' }, body: '{}' });
+assert.equal((await worker.fetch(big, env)).status, 413);
+assert.equal(rows.length, 1);
+
 console.log('ok');

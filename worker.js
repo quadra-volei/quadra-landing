@@ -18,6 +18,16 @@ const UPSERT = `INSERT INTO waitlist (email, newsletter, created_at) VALUES (?1,
   ON CONFLICT(email) DO UPDATE SET newsletter = MAX(newsletter, excluded.newsletter)`;
 
 export async function subscribe(request, env) {
+  // O corpo esperado tem menos de 400 bytes; recusa qualquer coisa muito maior sem ler.
+  if (Number(request.headers.get('content-length')) > 2048) return json({ error: 'too_large' }, 413);
+
+  // No máximo 5 envios por minuto por IP (binding LIMITER em wrangler.jsonc).
+  // ponytail: o limite é por IP; ligar Turnstile se alguém distribuir o ataque.
+  const ip = request.headers.get('cf-connecting-ip') ?? 'unknown';
+  if (env.LIMITER && !(await env.LIMITER.limit({ key: ip })).success) {
+    return json({ error: 'rate_limited' }, 429);
+  }
+
   let body;
   try {
     body = await request.json();
@@ -26,7 +36,6 @@ export async function subscribe(request, env) {
   }
 
   // Campo-isca preenchido = robô. Responde ok sem gravar.
-  // ponytail: sem limite por IP; ligar Turnstile ou uma regra de rate limit se aparecer spam.
   if (body?.site) return json({ ok: true });
 
   const email = String(body?.email ?? '').trim().toLowerCase();

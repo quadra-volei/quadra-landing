@@ -337,6 +337,7 @@ form.addEventListener('submit',async event=>{
  submit.disabled=true;feedback.textContent='Enviando…';
  try{
   const response=await fetch('/api/subscribe',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:form.email.value,newsletter:form.newsletter.checked,site:form.site.value})});
+  if(response.status===429){feedback.textContent='Muitas tentativas. Espere um minuto e tente de novo.';submit.disabled=false;return;}
   if(!response.ok)throw new Error(response.status);
   form.reset();feedback.textContent='Pronto! A gente avisa quando o app sair.';
  }catch{feedback.textContent='Não deu certo agora. Tente de novo ou escreva para contact@quadra-volei.app.';}
