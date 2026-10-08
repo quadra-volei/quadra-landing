@@ -191,7 +191,8 @@ h1 .hl { color: var(--lime); }
 /* ---------- Download ---------- */
 .get { --focus: #fff; background: var(--blue); color: #fff; border-top: var(--line); padding-block: clamp(4rem, 12vw, 9rem); }
 .get h2 { font-size: clamp(2.4rem, 10vw, 8rem); color: var(--lime); margin-bottom: 1.5rem; }
-.slots { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; max-width: none; }
+.foot a { color: var(--navy); }
+.slots { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2rem; max-width: none; }
 .slot { padding: .95rem 1.4rem; border: 2px dashed #fff; font-weight: 700; }
 
 /* ---------- Rodapé ---------- */
