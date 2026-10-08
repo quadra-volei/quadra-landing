@@ -193,7 +193,6 @@ h1 .hl { color: var(--lime); }
 .get h2 { font-size: clamp(2.4rem, 10vw, 8rem); color: var(--lime); margin-bottom: 1.5rem; }
 .foot a { color: var(--navy); }
 .slots { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; margin-top: 2rem; max-width: none; }
-.slot { padding: .95rem 1.4rem; border: 2px dashed #fff; font-weight: 700; }
 
 /* ---------- Rodapé ---------- */
 .foot { border-top: var(--line); }
