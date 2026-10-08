@@ -1,6 +1,6 @@
 // node tests/subscribe.test.mjs
 import assert from 'node:assert/strict';
-import { onRequestPost } from '../functions/api/subscribe.js';
+import worker from '../worker.js';
 
 // D1 de mentira: guarda só os valores do INSERT.
 const rows = [];
@@ -10,9 +10,11 @@ const env = {
     batch: async (statements) => rows.push(statements.at(-1).values),
   },
 };
-const post = (body) =>
-  onRequestPost({ env, request: new Request('https://x/api/subscribe', { method: 'POST', body }) });
+const post = (body, path = '/api/subscribe') =>
+  worker.fetch(new Request('https://x' + path, { method: 'POST', body }), env);
 
+assert.equal((await post('{}', '/outra')).status, 404);
+assert.equal((await worker.fetch(new Request('https://x/api/subscribe'), env)).status, 404);
 assert.equal((await post('not json')).status, 400);
 assert.equal((await post(JSON.stringify({ email: 'sem-arroba' }))).status, 400);
 assert.equal((await post(JSON.stringify({ email: 'a@b.co', site: 'bot' }))).status, 200);

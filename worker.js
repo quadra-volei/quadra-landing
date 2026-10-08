@@ -1,5 +1,7 @@
-// Cloudflare Pages Function: POST /api/subscribe
-// Grava o e-mail da lista de interesse no banco D1 ligado como `DB`.
+// Cloudflare Worker do quadra-landing.
+// Os arquivos de public/ são servidos direto pela Cloudflare; só o que não é
+// arquivo estático chega aqui. A única rota é POST /api/subscribe, que grava o
+// e-mail da lista de interesse no banco D1 ligado como `DB` (ver wrangler.jsonc).
 
 const json = (body, status = 200) => Response.json(body, { status });
 
@@ -15,7 +17,7 @@ const CREATE = `CREATE TABLE IF NOT EXISTS waitlist (
 const UPSERT = `INSERT INTO waitlist (email, newsletter, created_at) VALUES (?1, ?2, ?3)
   ON CONFLICT(email) DO UPDATE SET newsletter = MAX(newsletter, excluded.newsletter)`;
 
-export async function onRequestPost({ request, env }) {
+export async function subscribe(request, env) {
   let body;
   try {
     body = await request.json();
@@ -38,3 +40,11 @@ export async function onRequestPost({ request, env }) {
   ]);
   return json({ ok: true });
 }
+
+export default {
+  fetch(request, env) {
+    const { pathname } = new URL(request.url);
+    if (pathname === '/api/subscribe' && request.method === 'POST') return subscribe(request, env);
+    return new Response('Not found', { status: 404 });
+  },
+};

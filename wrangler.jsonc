@@ -1,0 +1,9 @@
+{
+  // O nome precisa ser o mesmo do Worker no painel da Cloudflare.
+  "name": "quadra-landing",
+  "main": "worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "./public" },
+  // Sem database_id: o wrangler cria o banco no primeiro deploy e reaproveita depois.
+  "d1_databases": [{ "binding": "DB", "database_name": "quadra-landing" }]
+}

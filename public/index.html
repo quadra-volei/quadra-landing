@@ -329,7 +329,7 @@ function selectGame(index){selectedGame=index;const game=games[index];document.q
 document.querySelectorAll('[data-game]').forEach(button=>button.addEventListener('click',()=>selectGame(Number(button.dataset.game))));
 document.querySelector('#map-filter').addEventListener('click',event=>{const filter=event.currentTarget;const active=filter.getAttribute('aria-pressed')!=='true';filter.setAttribute('aria-pressed',String(active));document.querySelectorAll('[data-game]').forEach(button=>{button.hidden=active&&games[Number(button.dataset.game)].spots===0;});if(active&&games[selectedGame].spots===0)selectGame(0);});
 
-// Lista de interesse: grava o e-mail em /api/subscribe (functions/api/subscribe.js).
+// Lista de interesse: grava o e-mail em /api/subscribe (worker.js).
 const form=document.querySelector('#signup-form');
 form.addEventListener('submit',async event=>{
  event.preventDefault();
