@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quadra | O vôlei da sua turma, organizado</title>
+  <meta name="description" content="Quadra é o app de vôlei amador: presença confirmada, times equilibrados, placar ao vivo, MVP e ranking da turma.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Quadra | O vôlei da sua turma, organizado">
+  <meta property="og:description" content="Presença confirmada, times equilibrados, placar ao vivo, MVP e ranking da turma.">
+  <meta name="theme-color" content="#1A1AFF">
+
+  <!-- Favicon: o símbolo da marca, inline (mesmos paths de Icone-quadra-logo.svg) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 169 163'%3E%3Cpath d='M47.9.6l50.2 14.5-37.6 129.7-50.2-14.5C2.7 128.1-1.6 120.2.6 112.6L30.2 10.3C32.4 2.7 40.3-1.6 47.9.6z' fill='%230032D1'/%3E%3Cpath d='M120.5 162.2l-49.4-14.3 7.4-25.6 63.2 18.3-3.5 11.9c-2.2 7.6-10.1 11.9-17.7 9.7z' fill='%23ACEA00'/%3E%3Cpath d='M108.7 18.2l49.4 14.3c7.6 2.2 12 10.2 9.8 17.8l-23.2 79.8-63.1-18.3z' fill='%230032D1'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=DM+Sans:wght@400;500;700&display=swap">
+  <!-- Baloo 2 é exclusiva do wordmark: baixa só as letras de "quadra" -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&text=quadra&display=swap">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Liga o scroll reveal só se houver JS; sem JS o conteúdo fica visível -->
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="brand" href="#" aria-label="Quadra, início">
+        <svg viewBox="0 0 169 163" width="34" height="33" aria-hidden="true">
+          <path d="M47.9316.5777 98.0858 15.1204 60.4704 144.847 10.3162 130.304C2.72875 128.104-1.64255 120.163.557503 112.575L30.2026 10.3364C32.4026 2.74895 40.3442-1.62236 47.9316.5777Z" fill="#0032D1"/>
+          <path d="M120.52 162.24 71.13 147.92 78.55 122.31 141.68 140.61 138.24 152.47C136.04 160.06 128.1 164.43 120.51 162.23Z" fill="#ACEA00"/>
+          <path d="M108.737 18.2061 158.123 32.5259C165.711 34.726 170.082 42.6675 167.882 50.255L144.728 130.106 81.5986 111.801Z" fill="#0032D1"/>
+        </svg>
+        <span class="wordmark">quadra</span>
+      </a>
+      <a class="btn btn-small" href="#baixar">Baixar</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- HERO: manchete à esquerda, quadra vista de cima sangrando pela direita -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Vôlei amador, organizado</p>
+        <h1>
+          <span>Chega de</span>
+          <span>lista no</span>
+          <span class="hl">grupo.</span>
+        </h1>
+        <p class="lede">O Quadra cuida do jogo da sua turma: quem vai, quem joga com quem, quanto está o set e quem foi o melhor em quadra.</p>
+        <a class="btn" href="#baixar">Baixar o app</a>
+      </div>
+
+      <svg class="court" viewBox="-12 -12 924 474" aria-hidden="true">
+        <rect x="0" y="0" width="450" height="450" fill="#0D0D9E"/>
+        <rect class="draw" x="0" y="0" width="900" height="450" pathLength="1"/>
+        <line class="draw" x1="300" y1="0" x2="300" y2="450" pathLength="1"/>
+        <line class="draw" x1="600" y1="0" x2="600" y2="450" pathLength="1"/>
+        <line class="draw net" x1="450" y1="-12" x2="450" y2="462" pathLength="1"/>
+        <g class="ball">
+          <circle cx="672" cy="162" r="36" fill="#0A0A3C"/>
+          <circle cx="660" cy="150" r="36" fill="#fff" stroke="#0A0A3C" stroke-width="4"/>
+          <path d="M628 134c22 4 44-4 58-22M660 186c-6-22 0-44 18-58M634 172c16-14 38-18 60-12" fill="none" stroke="#0A0A3C" stroke-width="4" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </section>
+
+    <!-- Faixa de cartaz, decorativa -->
+    <p class="strip" aria-hidden="true">Saque / Passe / Levanta / Ataque / Bloqueio / Ponto / Saque / Passe / Levanta / Ataque / Bloqueio / Ponto / Saque / Passe / Levanta / Ataque</p>
+
+    <!-- SÚMULA: o jogo em 5 linhas, em escada (--i desloca cada linha no desktop) -->
+    <section class="sheet">
+      <div class="wrap">
+        <h2 class="reveal">Do convite<br>ao MVP</h2>
+        <ol class="steps">
+          <li class="reveal" style="--i:0"><h3>Marque</h3><p>Jogo fixo ou avulso, com endereço, vagas e prazo de confirmação.</p></li>
+          <li class="reveal" style="--i:1"><h3>Confirme</h3><p>Presença em um toque. Lotou, entra a lista de espera.</p></li>
+          <li class="reveal" style="--i:2"><h3>Sorteie</h3><p>Times equilibrados ou no acaso, de 2 a 4 equipes.</p></li>
+          <li class="reveal" style="--i:3"><h3>Jogue</h3><p>O organizador marca os pontos e o placar aparece para todo mundo.</p></li>
+          <li class="reveal" style="--i:4"><h3>Vote</h3><p>A turma elege o MVP e o resumo sai pronto para compartilhar.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PLACAR: bloco navy deslocado para a direita, sangrando a borda -->
+    <section class="live">
+      <div class="live-block reveal">
+        <div>
+          <h2>Placar<br>ao vivo</h2>
+          <p>Set a set, ponto a ponto, com desfazer para quando alguém marcar errado. Quem está no banco acompanha pelo celular.</p>
+        </div>
+        <figure class="board">
+          <div class="board-head"><span>Set 2</span><span class="on-air">Ao vivo</span></div>
+          <div class="board-row lead"><span>Time azul</span><b>21</b></div>
+          <div class="board-row"><span>Time lima</span><b>18</b></div>
+          <figcaption>[ placar ilustrativo ]</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PONTOS: os três valores crescem com o que valem -->
+    <section class="points">
+      <div class="wrap">
+        <h2 class="reveal">Cada jogo conta.</h2>
+        <dl class="reveal">
+          <div class="p1"><dt>Presença</dt><dd>+10</dd></div>
+          <div class="p2"><dt>Vitória</dt><dd>+15</dd></div>
+          <div class="p3"><dt>MVP da partida</dt><dd>+25</dd></div>
+        </dl>
+        <p class="reveal">Os pontos viram o ranking da turma e a sua carta de jogador.</p>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="near">
+      <div class="wrap near-in">
+        <svg class="map reveal" viewBox="0 0 400 300" aria-hidden="true">
+          <rect x="1" y="1" width="398" height="298" fill="#E8EEF8" stroke="#0A0A3C" stroke-width="2"/>
+          <path d="M0 90 400 40M0 220 400 250M110 0 70 300M290 0 330 300M0 150 400 150" stroke="#0A0A3C" stroke-width="2" opacity=".25"/>
+          <g fill="#1A1AFF" stroke="#0A0A3C" stroke-width="2">
+            <rect x="82" y="52" width="26" height="26" transform="rotate(45 95 65)"/>
+            <rect x="297" y="182" width="26" height="26" transform="rotate(45 310 195)"/>
+            <rect x="137" y="222" width="26" height="26" transform="rotate(45 150 235)"/>
+          </g>
+          <circle cx="215" cy="140" r="12" fill="#AADD00" stroke="#0A0A3C" stroke-width="2"/>
+          <circle cx="215" cy="140" r="34" fill="none" stroke="#0A0A3C" stroke-width="2" stroke-dasharray="4 6"/>
+        </svg>
+        <div class="near-text reveal">
+          <h2>Tem jogo<br>aqui perto.</h2>
+          <p>O mapa mostra as partidas abertas ao seu redor. Entre direto ou com o código do organizador.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD: links das lojas ainda são placeholders [ ] -->
+    <section class="get" id="baixar">
+      <div class="wrap">
+        <h2 class="reveal">Bora pra<br>quadra?</h2>
+        <p class="reveal">O app ainda não está nas lojas. Os links entram aqui.</p>
+        <p class="slots reveal">
+          <span class="slot">[ link Google Play ]</span>
+          <span class="slot">[ link App Store ]</span>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <span class="wordmark">quadra</span>
+      <span>[ e-mail de contato ]</span>
+      <span>© 2026 Quadra</span>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal discreto: cada bloco aparece uma vez e para de ser observado.
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }, { rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
