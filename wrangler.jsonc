@@ -3,7 +3,11 @@
   "name": "quadra-landing",
   "main": "worker.js",
   "compatibility_date": "2025-09-01",
-  "assets": { "directory": "./public" },
+  // ASSETS: o Worker devolve public/convite.html para os links /p/<id>.
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+  // Impressões SHA-256 do certificado do app Android (Play Console > Integridade do app, e a do
+  // APK de teste em `eas credentials`), separadas por vírgula. Vazio = sem App Links.
+  "vars": { "ANDROID_CERT_SHA256": "" },
   // Sem database_id: o wrangler cria o banco no primeiro deploy e reaproveita depois.
   "d1_databases": [{ "binding": "DB", "database_name": "quadra-landing" }],
   // Limite de envios do formulário: 5 por minuto por IP (ver worker.js).

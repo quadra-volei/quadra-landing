@@ -31,4 +31,17 @@ const big = new Request('https://x/api/subscribe', { method: 'POST', headers: { 
 assert.equal((await worker.fetch(big, env)).status, 413);
 assert.equal(rows.length, 1);
 
+
+// Convite por link: /p/<uuid> devolve a página do convite; outro caminho em /p/ não.
+const served = [];
+const withAssets = { ...env, ASSETS: { fetch: async (url) => (served.push(String(url)), new Response('page')) } };
+const get = (path, e = withAssets) => worker.fetch(new Request('https://x' + path), e);
+assert.equal((await get('/p/0b6f3c1e-2d4a-4e8b-9c7d-1a2b3c4d5e6f?c=ABCD2345')).status, 200);
+assert.deepEqual(served, ['https://x/convite']);
+assert.equal((await get('/p/nao-e-uuid')).status, 404);
+
+// assetlinks.json só existe com a impressão do certificado configurada.
+assert.equal((await get('/.well-known/assetlinks.json')).status, 404);
+const links = await (await get('/.well-known/assetlinks.json', { ...withAssets, ANDROID_CERT_SHA256: 'AA:BB, CC:DD' })).json();
+assert.deepEqual(links[0].target, { namespace: 'android_app', package_name: 'com.quadra.app', sha256_cert_fingerprints: ['AA:BB', 'CC:DD'] });
 console.log('ok');
