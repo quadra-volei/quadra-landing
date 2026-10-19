@@ -36,4 +36,5 @@ node tests/subscribe.test.mjs     # must pass before committing a change to work
 - Do not add a framework, a bundler or npm packages without asking.
 - Do not write secrets or a `database_id` in any file.
 - Do not log or expose the stored e-mails.
-- Do not push or deploy unless asked.
+- Do not push or deploy unless asked: a push to `main` deploys the site (Cloudflare Workers Builds,
+  connected to this GitHub repo), so pushing is publishing.
