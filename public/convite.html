@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Convite para jogar — Quadra</title>
+<meta name="description" content="Você foi convidado para uma partida de vôlei no Quadra.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1A1AFF">
+<meta property="og:title" content="Bora jogar vôlei? Você foi convidado no Quadra">
+<meta property="og:description" content="Abra o convite no app Quadra para ver a partida e confirmar presença.">
+<style>
+:root{--blue:#1A1AFF;--lime:#AADD00;--navy:#0A0A3C;--paper:#EFF3FC;--line:rgba(10,10,60,.2)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--blue);color:#fff;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.card{width:100%;max-width:420px;background:#fff;color:var(--navy);border-radius:20px;padding:28px 20px;text-align:center;box-shadow:6px 6px 0 var(--navy)}
+.word{font-weight:800;font-size:1.6rem;color:var(--blue);letter-spacing:.02em}
+h1{font-size:1.4rem;line-height:1.25;margin:12px 0 8px}
+p{margin:0 0 16px;color:rgba(10,10,60,.75)}
+.btn{display:block;width:100%;padding:14px 16px;border-radius:14px;border:2px solid var(--navy);font-weight:800;text-decoration:none;margin-top:12px}
+.primary{background:var(--lime);color:var(--navy);box-shadow:3px 3px 0 var(--navy)}
+.secondary{background:#fff;color:var(--navy)}
+.code{display:none;margin-top:20px;padding:12px;border:2px dashed var(--line);border-radius:12px}
+.code strong{display:block;font-size:1.4rem;letter-spacing:.2em;margin-top:4px}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="word">quadra</div>
+  <h1>Você foi convidado para uma partida de vôlei</h1>
+  <p>Abra no app Quadra para ver a partida e confirmar sua presença.</p>
+  <a class="btn primary" id="open" href="https://play.google.com/store/apps/details?id=com.quadra.app">Abrir no app</a>
+  <a class="btn secondary" id="store" href="https://play.google.com/store/apps/details?id=com.quadra.app">Baixar na Google Play</a>
+  <div class="code" id="code">Código de convite<strong id="code-value"></strong></div>
+</main>
+<script>
+  // /p/<id>?c=<código>. O botão abre o app pelo intent do Android; sem o app, o próprio
+  // intent cai na Google Play.
+  (function () {
+    var id = (location.pathname.match(/^\/p\/([0-9a-f-]{36})\/?$/i) || [])[1];
+    var code = (new URLSearchParams(location.search).get('c') || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 16);
+    if (!id) return;
+    var store = 'https://play.google.com/store/apps/details?id=com.quadra.app';
+    var path = 'p/' + id + (code ? '?c=' + code : '');
+    document.getElementById('open').href = /Android/i.test(navigator.userAgent)
+      ? 'intent://quadra-volei.app/' + path + '#Intent;scheme=https;package=com.quadra.app;S.browser_fallback_url=' + encodeURIComponent(store) + ';end'
+      : 'quadra://' + path;
+    if (code) {
+      document.getElementById('code-value').textContent = code.toUpperCase();
+      document.getElementById('code').style.display = 'block';
+    }
+  })();
+</script>
+</body>
+</html>

@@ -10,7 +10,10 @@ public/index.html          the whole page (HTML, CSS and JS inline), served by C
 public/termos.html, privacidade.html, excluir-conta.html
                            legal pages (/termos, /privacidade, /excluir-conta), linked from the app; drafts
                            with noindex until Johny reviews them with a lawyer
-worker.js                  POST /api/subscribe: stores the waitlist e-mail in D1 (binding `DB`)
+public/convite.html        invite page served for /p/<match id>?c=<code> (opens the app, else Google Play)
+worker.js                  POST /api/subscribe (waitlist e-mail in D1, binding `DB`), GET /p/<id> (invite
+                           page through binding `ASSETS`), /.well-known/assetlinks.json (Android App Links,
+                           fingerprints in var `ANDROID_CERT_SHA256`)
 wrangler.jsonc             Worker name, D1 binding, rate limit (binding `LIMITER`, 5 per minute per IP)
 tests/subscribe.test.mjs   plain Node asserts against worker.js with a fake D1
 ```
@@ -18,7 +21,7 @@ tests/subscribe.test.mjs   plain Node asserts against worker.js with a fake D1
 ## Commands
 
 ```bash
-node tests/subscribe.test.mjs     # must pass before committing a change to worker.js
+node tests/subscribe.test.mjs     # must pass before committing a change to worker.js (all routes)
 ```
 
 ## Conventions
