@@ -7,6 +7,9 @@ No build step, no `package.json`, no dependencies: keep it that way.
 
 ```
 public/index.html          the whole page (HTML, CSS and JS inline), served by Cloudflare as a static asset
+public/termos.html, privacidade.html, excluir-conta.html
+                           legal pages (/termos, /privacidade, /excluir-conta), linked from the app; drafts
+                           with noindex until Johny reviews them with a lawyer
 worker.js                  POST /api/subscribe: stores the waitlist e-mail in D1 (binding `DB`)
 wrangler.jsonc             Worker name, D1 binding, rate limit (binding `LIMITER`, 5 per minute per IP)
 tests/subscribe.test.mjs   plain Node asserts against worker.js with a fake D1
