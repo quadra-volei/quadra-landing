@@ -6,8 +6,9 @@
   // ASSETS: o Worker devolve public/convite.html para os links /p/<id>.
   "assets": { "directory": "./public", "binding": "ASSETS" },
   // Impressões SHA-256 do certificado do app Android (Play Console > Integridade do app, e a do
-  // APK de teste em `eas credentials`), separadas por vírgula. Vazio = sem App Links.
-  "vars": { "ANDROID_CERT_SHA256": "" },
+  // APK de teste em `eas credentials`), separadas por vírgula. Vazio = sem App Links. Hoje: a do
+  // keystore do EAS (APK preview). Ao publicar na Play com Play App Signing, somar a da Play.
+  "vars": { "ANDROID_CERT_SHA256": "10:6D:28:4F:EB:63:03:6A:E1:2D:4C:8D:DF:C0:49:61:C2:A8:CD:33:62:2C:F0:2F:3F:A9:A3:E8:4C:43:B0:7E" },
   // Sem database_id: o wrangler cria o banco no primeiro deploy e reaproveita depois.
   "d1_databases": [{ "binding": "DB", "database_name": "quadra-landing" }],
   // Limite de envios do formulário: 5 por minuto por IP (ver worker.js).
