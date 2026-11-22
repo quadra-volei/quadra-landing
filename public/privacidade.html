@@ -29,7 +29,7 @@ footer{max-width:760px;margin:0 auto;padding:0 16px 48px;color:rgba(10,10,60,.7)
 <header><a href="/">quadra</a></header>
 <main>
 <h1>Política de Privacidade</h1>
-<p class="meta">Versão de 19 de outubro de 2026 · aplica-se ao app Quadra (Android e iOS) e a este site.</p>
+<p class="meta">Versão de 22 de novembro de 2026 · aplica-se ao app Quadra (Android) e a este site.</p>
 
 <div class="draft" role="note"><strong>Rascunho para revisão.</strong> Este texto foi preparado para ser revisado e não é parecer jurídico. Antes de publicar, confira com um advogado e preencha os trechos marcados <span class="fill">assim</span>.</div>
 
@@ -45,16 +45,20 @@ footer{max-width:760px;margin:0 auto;padding:0 16px 48px;color:rgba(10,10,60,.7)
 <tr><td>Partidas que você cria (nome, local com endereço e coordenadas, data, vagas, preço) e convidados sem conta que você adiciona (nome e posição)</td><td>Você</td><td>Organizar a partida</td></tr>
 <tr><td>Presenças, lista de espera, times, placar, votos de MVP, pontos e ranking</td><td>Uso do app</td><td>Fazer o jogo acontecer e calcular estatísticas, nível e ranking</td></tr>
 <tr><td>Posts (texto e foto), curtidas, comentários, quem você segue, bloqueios e denúncias</td><td>Você, na Rede</td><td>Mostrar a Rede, a atividade dos amigos e manter a comunidade segura</td></tr>
-<tr><td>Localização aproximada do aparelho</td><td>Aparelho, só com sua permissão</td><td>Mostrar partidas perto de você; não guardamos sua localização</td></tr>
+<tr><td>Localização do aparelho</td><td>Aparelho, só com sua permissão</td><td>Mostrar partidas perto de você; não guardamos sua localização</td></tr>
+<tr><td>Compra do passe de temporada: temporada, produto, número do pedido no Google Play e situação (paga, reembolsada)</td><td>Google Play, quando você compra</td><td>Liberar o passe na sua conta, conferir que a compra é verdadeira e cumprir obrigações fiscais. O pagamento é feito no Google Play: não vemos nem guardamos cartão ou conta bancária</td></tr>
+<tr><td>Anúncios que você contrata (texto, foto, ponto no mapa, raio, link ou WhatsApp) e quantas vezes cada anúncio foi visto ou tocado</td><td>Você, ao anunciar; uso do app</td><td>Mostrar o anúncio na região escolhida, cobrar e informar o alcance ao anunciante. Contamos quem viu um anúncio uma vez por dia, sem mostrar quem foi ao anunciante</td></tr>
+<tr><td>Token de notificação do aparelho</td><td>Aparelho, só com sua permissão</td><td>Enviar avisos das suas partidas (lembretes, resumo, votação de MVP)</td></tr>
 <tr><td>Mensagens de feedback, versão do app e sistema do aparelho</td><td>Você</td><td>Responder e corrigir problemas</td></tr>
+<tr><td>Relatórios de erro e de falha do app e do servidor (modelo do aparelho, versão, tela e o erro, com o identificador da conta)</td><td>App e servidor, automaticamente</td><td>Encontrar e corrigir falhas. Não enviamos telefone, e-mail, códigos nem o conteúdo das mensagens</td></tr>
 <tr><td>Registros técnicos (endereço IP, data e rota das requisições)</td><td>Servidor</td><td>Segurança, limite de abusos e correção de erros</td></tr>
 <tr><td>E-mail da lista de interesse</td><td>Você, neste site</td><td>Avisar quando o app for lançado</td></tr>
 </tbody>
 </table>
-<p>Não vendemos seus dados e não os usamos para publicidade. Não pedimos documentos, dados de pagamento nem dados sensíveis.</p>
+<p>Não vendemos seus dados e não os usamos para direcionar publicidade a você: os anúncios do app são escolhidos pela região no mapa, não pelo seu perfil. Não pedimos documentos, dados de cartão nem dados sensíveis.</p>
 
 <h2>3. Bases legais (LGPD, art. 7º)</h2>
-<p>Usamos seus dados para executar o serviço que você pediu ao criar a conta (contrato), para cumprir obrigações legais e por legítimo interesse em manter o app seguro, prevenindo fraudes e abusos. A localização e o e-mail da lista de interesse dependem do seu consentimento, que você pode retirar a qualquer momento.</p>
+<p>Usamos seus dados para executar o serviço que você pediu ao criar a conta ou ao comprar o passe e contratar um anúncio (contrato), para cumprir obrigações legais, como guardar o registro de vendas, e por legítimo interesse em manter o app seguro, prevenindo fraudes e abusos. A localização e o e-mail da lista de interesse dependem do seu consentimento, que você pode retirar a qualquer momento.</p>
 
 <h2>4. O que outras pessoas veem</h2>
 <p>Seu nome, @usuário, foto, posição, nível, carta, estatísticas e posts ficam visíveis para quem usa o Quadra. Partidas públicas aparecem para todos; partidas privadas só para o organizador e os participantes. Sua atividade (jogou, foi MVP, subiu de nível) aparece para quem segue você, e você pode desligar isso em Configurações. Seu telefone e seu e-mail nunca aparecem para outros jogadores.</p>
@@ -64,12 +68,13 @@ footer{max-width:760px;margin:0 auto;padding:0 16px 48px;color:rgba(10,10,60,.7)
 <ul>
 <li>Render (hospedagem da API) e Neon (banco de dados), com servidores nos Estados Unidos;</li>
 <li>Cloudflare (este site e, quando ativado, o armazenamento de fotos);</li>
-<li>Twilio (envio do código por SMS), Google (login com Google e busca de endereços) e Komoot/Photon (busca de endereços pelo OpenStreetMap);</li>
+<li>Google: login com Google; envio e conferência do código por SMS pelo Firebase Authentication; entrega de notificações pelo Firebase Cloud Messaging; mapa do app pelo Google Maps; busca de endereços e de arenas pelo Google Places; verificação automática de fotos impróprias pelo Cloud Vision; e pagamento do passe de temporada pelo Google Play;</li>
+<li>Sentry (relatórios de erro e de falha do app e do servidor), Expo (envio das notificações para o celular e atualização do app) e Komoot/Photon (busca de endereços pelo OpenStreetMap, quando o Google não é usado).</li>
 </ul>
 <p>Como alguns servidores ficam fora do Brasil, há transferência internacional de dados, feita com prestadores que adotam garantias de proteção compatíveis com a LGPD (art. 33). Também podemos compartilhar dados quando a lei ou uma ordem judicial exigir.</p>
 
 <h2>6. Por quanto tempo guardamos</h2>
-<p>Enquanto sua conta existir. Quando você exclui a conta, apagamos na hora seu perfil, foto, posts, comentários, curtidas, seguidores, bloqueios, denúncias que você fez, feedback, pontos e ranking, e cancelamos as partidas futuras que você organiza. Partidas já jogadas guardam apenas um identificador interno que não aponta mais para ninguém, para não apagar o histórico dos outros jogadores. Registros técnicos ficam nos logs da hospedagem pelo prazo dela. <span class="fill">[Hoje os logs do Render duram poucos dias; o Marco Civil da Internet (art. 15) pede que provedores constituídos como pessoa jurídica guardem registros de acesso por 6 meses: decidir e ajustar. Confirmar também o prazo dos backups do banco no Neon. Quando o armazenamento de fotos for ligado, a exclusão precisa apagar também os arquivos das fotos.]</span></p>
+<p>Enquanto sua conta existir. Quando você exclui a conta, apagamos na hora seu perfil, suas fotos (inclusive os arquivos guardados), posts, comentários, curtidas, seguidores, bloqueios, denúncias que você fez, feedback, pontos e ranking, e cancelamos as partidas futuras que você organiza; se você tinha vaga confirmada numa partida que ainda vai acontecer, ela passa para o próximo da lista de espera. Partidas já jogadas guardam apenas um identificador interno que não aponta mais para ninguém, para não apagar o histórico dos outros jogadores. Compras do passe e anúncios pagos continuam no nosso registro de vendas, sem ligação com você, pelo prazo que a lei fiscal exige <span class="fill">[prazo a confirmar com o contador, em geral 5 anos]</span>. Registros técnicos ficam nos logs da hospedagem e nos relatórios de erro <span class="fill">[definir o prazo de guarda dos registros de acesso: o Marco Civil da Internet (art. 15) pede 6 meses para provedor constituído como pessoa jurídica. Hoje os logs do Render duram poucos dias e os relatórios do Sentry, 30 dias. Confirmar também o prazo dos backups do banco no Neon.]</span>.</p>
 
 <h2>7. Seus direitos</h2>
 <p>Você pode, a qualquer momento: confirmar que tratamos seus dados e acessá-los (no app: Configurações → Exportar meus dados); corrigir dados (Configurações → Editar perfil); excluir sua conta e seus dados (Configurações → Excluir conta, ou pela <a href="/excluir-conta">página de exclusão</a>); retirar um consentimento; pedir informações sobre compartilhamento; e reclamar à Autoridade Nacional de Proteção de Dados (ANPD). Para qualquer pedido, escreva para <a href="mailto:contact@quadra-volei.app">contact@quadra-volei.app</a>; respondemos em até 15 dias.</p>
