@@ -23,11 +23,22 @@ export async function subscribe(request, env) {
   if (Number(request.headers.get('content-length')) > 2048) return json({ error: 'too_large' }, 413);
 
   // No máximo 5 envios por minuto por IP (binding LIMITER em wrangler.jsonc).
+  // Sem o binding, ou se ele falhar, recusa em vez de aceitar tudo (SEC-12): melhor o
+  // formulário parar do que alguém encher o banco.
   // ponytail: o limite é por IP; ligar Turnstile se alguém distribuir o ataque.
   const ip = request.headers.get('cf-connecting-ip') ?? 'unknown';
-  if (env.LIMITER && !(await env.LIMITER.limit({ key: ip })).success) {
-    return json({ error: 'rate_limited' }, 429);
+  if (!env.LIMITER) {
+    console.error('binding LIMITER ausente: lista de interesse fechada');
+    return json({ error: 'unavailable' }, 503);
   }
+  let allowed;
+  try {
+    allowed = (await env.LIMITER.limit({ key: ip })).success;
+  } catch (error) {
+    console.error('LIMITER falhou', error?.message);
+    return json({ error: 'unavailable' }, 503);
+  }
+  if (!allowed) return json({ error: 'rate_limited' }, 429);
 
   let body;
   try {

@@ -5,6 +5,7 @@ import worker from '../worker.js';
 // D1 de mentira: guarda só os valores do INSERT.
 const rows = [];
 const env = {
+  LIMITER: { limit: async () => ({ success: true }) },
   DB: {
     prepare: (sql) => ({ sql, bind: (...values) => ({ sql, values }) }),
     batch: async (statements) => rows.push(statements.at(-1).values),
@@ -30,6 +31,13 @@ assert.equal((await worker.fetch(request(), blocked)).status, 429);
 const big = new Request('https://x/api/subscribe', { method: 'POST', headers: { 'content-length': '5000' }, body: '{}' });
 assert.equal((await worker.fetch(big, env)).status, 413);
 assert.equal(rows.length, 1);
+
+// SEC-12: sem o binding LIMITER, ou com ele quebrado, nada é gravado (antes aceitava tudo).
+const { LIMITER: _, ...noLimiter } = env;
+assert.equal((await worker.fetch(request(), noLimiter)).status, 503);
+const broken = { ...env, LIMITER: { limit: async () => { throw new Error('down'); } } };
+assert.equal((await worker.fetch(request(), broken)).status, 503);
+assert.equal(rows.length, 1, 'sem limite, nada grava');
 
 
 // Convite por link: /p/<uuid> devolve a página do convite; outro caminho em /p/ não.
