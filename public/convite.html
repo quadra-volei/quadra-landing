@@ -28,8 +28,8 @@ p{margin:0 0 16px;color:rgba(10,10,60,.75)}
   <div class="word">quadra</div>
   <h1>Você foi convidado para uma partida de vôlei</h1>
   <p>Abra no app Quadra para ver a partida e confirmar sua presença.</p>
-  <a class="btn primary" id="open" href="https://play.google.com/store/apps/details?id=com.quadra.app">Abrir no app</a>
-  <a class="btn secondary" id="store" href="https://play.google.com/store/apps/details?id=com.quadra.app">Baixar na Google Play</a>
+  <a class="btn primary" id="open" href="https://play.google.com/store/apps/details?id=app.quadravolei">Abrir no app</a>
+  <a class="btn secondary" id="store" href="https://play.google.com/store/apps/details?id=app.quadravolei">Baixar na Google Play</a>
   <div class="code" id="code">Código de convite<strong id="code-value"></strong></div>
 </main>
 <script>
@@ -39,10 +39,10 @@ p{margin:0 0 16px;color:rgba(10,10,60,.75)}
     var id = (location.pathname.match(/^\/p\/([0-9a-f-]{36})\/?$/i) || [])[1];
     var code = (new URLSearchParams(location.search).get('c') || '').replace(/[^A-Za-z0-9]/g, '').slice(0, 16);
     if (!id) return;
-    var store = 'https://play.google.com/store/apps/details?id=com.quadra.app';
+    var store = 'https://play.google.com/store/apps/details?id=app.quadravolei';
     var path = 'p/' + id + (code ? '?c=' + code : '');
     document.getElementById('open').href = /Android/i.test(navigator.userAgent)
-      ? 'intent://quadra-volei.app/' + path + '#Intent;scheme=https;package=com.quadra.app;S.browser_fallback_url=' + encodeURIComponent(store) + ';end'
+      ? 'intent://quadra-volei.app/' + path + '#Intent;scheme=https;package=app.quadravolei;S.browser_fallback_url=' + encodeURIComponent(store) + ';end'
       : 'quadra://' + path;
     if (code) {
       document.getElementById('code-value').textContent = code.toUpperCase();

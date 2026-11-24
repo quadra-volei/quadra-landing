@@ -51,5 +51,5 @@ assert.equal((await get('/p/nao-e-uuid')).status, 404);
 // assetlinks.json só existe com a impressão do certificado configurada.
 assert.equal((await get('/.well-known/assetlinks.json')).status, 404);
 const links = await (await get('/.well-known/assetlinks.json', { ...withAssets, ANDROID_CERT_SHA256: 'AA:BB, CC:DD' })).json();
-assert.deepEqual(links[0].target, { namespace: 'android_app', package_name: 'com.quadra.app', sha256_cert_fingerprints: ['AA:BB', 'CC:DD'] });
+assert.deepEqual(links[0].target, { namespace: 'android_app', package_name: 'app.quadravolei', sha256_cert_fingerprints: ['AA:BB', 'CC:DD'] });
 console.log('ok');
