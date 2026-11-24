@@ -77,7 +77,7 @@ export function assetLinks(env) {
   return Response.json([
     {
       relation: ['delegate_permission/common.handle_all_urls'],
-      target: { namespace: 'android_app', package_name: 'com.quadra.app', sha256_cert_fingerprints: fingerprints },
+      target: { namespace: 'android_app', package_name: 'app.quadravolei', sha256_cert_fingerprints: fingerprints },
     },
   ]);
 }
