@@ -8,8 +8,8 @@ No build step, no `package.json`, no dependencies: keep it that way.
 ```
 public/index.html          the whole page (HTML, CSS and JS inline), served by Cloudflare as a static asset
 public/termos.html, privacidade.html, excluir-conta.html
-                           legal pages (/termos, /privacidade, /excluir-conta), linked from the app; drafts
-                           with noindex until Johny reviews them with a lawyer
+                           legal pages (/termos, /privacidade, /excluir-conta), linked from the app and from
+                           the Play listing; published (indexed), controller is Johny as an individual
 public/convite.html        invite page served for /p/<match id>?c=<code> (opens the app, else Google Play)
 worker.js                  POST /api/subscribe (waitlist e-mail in D1, binding `DB`), GET /p/<id> (invite
                            page through binding `ASSETS`), /.well-known/assetlinks.json (Android App Links,
