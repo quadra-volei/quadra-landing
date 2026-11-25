@@ -10,7 +10,7 @@
   // keystore do EAS (APK preview) e a do keystore local quadra-release (gradlew assembleRelease).
   // Ao publicar na Play com Play App Signing, somar a da Play. A terceira é a chave de upload que o EAS
   // gerou para app.quadravolei (24/11/2026). A quarta é a chave de assinatura da Play (Play App Signing).
-  "vars": { "ANDROID_CERT_SHA256": "10:6D:28:4F:EB:63:03:6A:E1:2D:4C:8D:DF:C0:49:61:C2:A8:CD:33:62:2C:F0:2F:3F:A9:A3:E8:4C:43:B0:7E,49:75:09:11:D7:4F:AF:F5:66:C3:F9:15:6C:EB:9C:39:42:AE:18:89:24:AC:F5:1C:1B:67:99:8C:C9:9D:98:53,09:8D:F2:F7:8F:6A:A9:16:88:EE:F8:14:C5:21:B2:2A:28:63:07:4D:2B:DA:3E:34:D2:DA:E7:C7:58:96:20:B4,E0:FA:76:1F:59:55:73:78:BF:D1:38:61:A0:37:0E:42:0B:23:30:1C:4D:82:57:EC:68:C2:7B:BC:7A:1C:E0:4F" },
+  "vars": { "ANDROID_CERT_SHA256": "10:6D:28:4F:EB:63:03:6A:E1:2D:4C:8D:DF:C0:49:61:C2:A8:CD:33:62:2C:F0:2F:3F:A9:A3:E8:4C:43:B0:7E,49:75:09:11:D7:4F:AF:F5:66:C3:F9:15:6C:EB:9C:39:42:AE:18:89:24:AC:F5:1C:1B:67:99:8C:C9:9D:98:53,09:8D:F2:F7:8F:6A:A9:16:88:EE:F8:14:C5:21:B2:2A:28:63:07:4D:2B:DA:3E:34:D2:DA:E7:C7:58:96:20:B4,E0:FA:76:1F:59:55:73:78:BF:D1:38:61:A0:37:0E:42:0B:23:30:1C:4D:82:57:EC:68:C2:7B:BC:7A:1C:E0:4F,1E:71:4A:BA:54:14:B4:B6:A5:CB:9F:63:4E:8E:E3:B0:57:4D:C8:55:A0:3D:14:A1:5C:93:21:41:FD:CC:29:42" },
   // Sem database_id: o wrangler cria o banco no primeiro deploy e reaproveita depois.
   "d1_databases": [{ "binding": "DB", "database_name": "quadra-landing" }],
   // Limite de envios do formulário: 5 por minuto por IP (ver worker.js).
